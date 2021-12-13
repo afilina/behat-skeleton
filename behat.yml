@@ -1,0 +1,16 @@
+default:
+  suites:
+    application:
+      autowire: true
+      services: "@psr_container"
+      filters:
+        tags: "~@wip"
+      contexts:
+        - Tests\Acceptance\Context\ResetDatabaseContext
+        - Tests\Acceptance\Context\ExampleContext
+      paths:
+        - 'features/'
+
+  extensions:
+    Roave\BehatPsrContainer\PsrContainerExtension:
+      container: 'config/services.php'
